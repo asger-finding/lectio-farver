@@ -1,0 +1,50 @@
+{
+   "manifest_version": 3,
+   "name": "Lectio Farver",
+   "version": "0.1.0",
+   "description": "Få fede farver på dit lectio skema",
+   "background": {
+      "service_worker": "background.js"
+   },
+   "action": {
+      "default_popup": "editor.html",
+      "default_icon": {
+         "16": "icon16.png",
+         "48": "icon48.png",
+         "128": "icon128.png"
+      }
+   },
+   "commands": {
+      "_execute_action": {
+         "description": "Åben farveredigering",
+         "suggested_key": {
+            "default": "Ctrl+Shift+F",
+            "mac": "MacCtrl+Shift+F"
+         }
+      }
+   },
+   "content_scripts": [
+      {
+         "matches": [
+            "https://www.lectio.dk/*"
+         ],
+         "js": [
+            "colorize.js"
+         ]
+      }
+   ],
+   "permissions": [
+      "activeTab",
+      "declarativeContent",
+      "storage",
+      "scripting"
+   ],
+   "host_permissions": [
+      "*://www.lectio.dk/*"
+   ],
+   "icons": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+   }
+}

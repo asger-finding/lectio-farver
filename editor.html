@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Lectio-skemaet i farver</title>
+    <style>
+      :root {
+        user-select: none;
+      }
+      h1 {
+        font-size: 1.6em;
+        margin: 0 auto;
+        text-align:center;
+      }
+      .color {
+        display: flex;
+        align-items: center;
+        min-width: 200px;
+        padding: 5px 0;
+      }
+      .color:not(:last-of-type) {
+        border-bottom: 2px dashed #aaaaaa;
+      }
+      .color input[type='color'] {
+        margin-right: 10px;
+      }
+      #reset {
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+        padding-top: 5px;
+        border-top: 2px solid #aaaaaa;
+        cursor: pointer;
+      }
+    </style>
+    <script src="editor.js"></script>
+  </head>
+  <body>
+    <div id="heading"><h1>Lectio Skemafarver</h1></div>
+    <div id="colors"></div>
+    <div id="reset"><img src="./trash.svg" id="trash">Slet alle</div>
+  </body>
+</html>
