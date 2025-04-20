@@ -1,7 +1,7 @@
 {
    "manifest_version": 3,
    "name": "Lectio Farver",
-   "version": "0.1.0",
+   "version": "0.2.0",
    "description": "Få fede farver på dit lectio skema!",
    "background": {
       "service_worker": "background.js"
