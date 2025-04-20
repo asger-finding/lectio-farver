@@ -2,7 +2,7 @@
    "manifest_version": 3,
    "name": "Lectio Farver",
    "version": "0.1.0",
-   "description": "Få fede farver på dit lectio skema",
+   "description": "Få fede farver på dit lectio skema!",
    "background": {
       "service_worker": "background.js"
    },
@@ -12,15 +12,6 @@
          "16": "icon16.png",
          "48": "icon48.png",
          "128": "icon128.png"
-      }
-   },
-   "commands": {
-      "_execute_action": {
-         "description": "Åben farveredigering",
-         "suggested_key": {
-            "default": "Ctrl+Shift+F",
-            "mac": "MacCtrl+Shift+F"
-         }
       }
    },
    "content_scripts": [

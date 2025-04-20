@@ -17,11 +17,27 @@
         min-width: 200px;
         padding: 5px 0;
       }
-      .color:not(:last-of-type) {
+      .color:not(:last-of-type):not(:has(+ hr)) {
         border-bottom: 2px dashed #aaaaaa;
       }
       .color input[type='color'] {
         margin-right: 10px;
+      }
+      .color .remove {
+        display: block;
+        opacity: 0.0;
+        margin-left: auto;
+      }
+      .color:hover .remove {
+        opacity: 0.2;
+        cursor: pointer;
+      }
+      #colors hr {
+        margin: 0;
+        border: 1px solid #aaaaaa;
+      }
+      #colors hr:last-child {
+        display: none;
       }
       #reset {
         display: flex;
@@ -37,6 +53,6 @@
   <body>
     <div id="heading"><h1>Lectio Skemafarver</h1></div>
     <div id="colors"></div>
-    <div id="reset"><img src="./trash.svg" id="trash">Slet alle</div>
+    <div id="reset"><img src="./trash.svg" class="trash">Slet alle</div>
   </body>
 </html>
