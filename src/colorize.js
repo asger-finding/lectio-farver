@@ -2,7 +2,7 @@
 
 	let colors = {};
 
-	const rgbToHex = (r, g, b) => `#${ r.toString(16) }${ g.toString(16) }${ b.toString(16) }`;
+	const rgbToHex = (r, g, b) => `#${ r.toString(16).padStart(2, '0') }${ g.toString(16).padStart(2, '0') }${ b.toString(16).padStart(2, '0') }`;
 
 	const getCurrentClass = () => {
 		const regex = /,\s*([^-]+)/;
@@ -20,6 +20,8 @@
 	const setModuleColor = (element, rgb) => {
 		const [ r, g, b ] = rgb;
 		const color = rgbToHex(r, g, b);
+
+		console.log(element, rgb, color);
 
 		element.parentElement.style.backgroundImage = 'none';
 		element.parentElement.style.backgroundColor = color;

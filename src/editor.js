@@ -2,6 +2,8 @@ let colors = {};
 
 const hexToRgb = hex => ['0x' + hex[1] + hex[2] | 0, '0x' + hex[3] + hex[4] | 0, '0x' + hex[5] + hex[6] | 0];
 
+const rgbToHex = (r, g, b) => `#${ r.toString(16).padStart(2, '0') }${ g.toString(16).padStart(2, '0') }${ b.toString(16).padStart(2, '0') }`;
+
 const executeColorScript = () => chrome.tabs.query({ active: true, currentWindow: true }, tabs => {
 	if (tabs[0].id) {
 		chrome.scripting.executeScript({
@@ -13,7 +15,7 @@ const executeColorScript = () => chrome.tabs.query({ active: true, currentWindow
 
 const createItem = (subjectIdentifier, rgb) => {
 	const [ r, g, b ] = rgb;
-	const color = `#${ r.toString(16) }${ g.toString(16) }${ b.toString(16) }`;
+	const color = rgbToHex(r, g, b);
 
 	const wrapper = document.createElement('div');
 	const input = document.createElement('input');
@@ -36,6 +38,8 @@ const createItem = (subjectIdentifier, rgb) => {
 		const rgb = hexToRgb(newColorHex);
 
 		colors[subjectIdentifier] = rgb;
+
+		console.log(subjectIdentifier, newColorHex, rgb);
 
 		chrome.storage.sync.set({ assignedColors: colors }, () => executeColorScript());
 	});
